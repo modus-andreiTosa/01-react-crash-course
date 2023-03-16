@@ -23,6 +23,13 @@
         // The children argument is also optional and can be used to pass in other React nodes (elements, strings, numbers, portals, empty nodes, arrays of React nodes).
         const h1 = React.createElement('h1', { className: 'fancy' }, 'Hello Modus!');
 
+        // Here we are using the "className" prop instead of the "class" prop because "class" is a reserved word in JavaScript.
+        // Using camelCase for props and for common html attributes is the convention in React.
+        // To complete our task we first need to use ReactDOM to create the root React Node, inside of which we can render our App.
+        const root = ReactDOM.createRoot(rootElement);
+
+        // This now allows us to render React nodes in the DOM and this also gives React the ability to manage the DOM.
+        root.render(h1);
     </script>
 </body>
 </html>
