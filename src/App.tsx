@@ -34,7 +34,7 @@ function App() {
   ];
 
   /* 4
-  A component is a function or a class that optionally accepts arguments, in React they are called “props” and returns a React node.
+  A component is a function or a class that optionally accepts arguments, in React they are called “props” and it returns a React node.
     - A React node can be:
     - JavaScript primitives;
     - React elements;
