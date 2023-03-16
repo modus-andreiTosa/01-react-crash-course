@@ -6,24 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>react-patterns-workshop</title>
     <script type="module">
-      // We will start with a quick reminder where we all started from. The basic manipulation of the DOM.
-      // This is just a quick overview of the basic DOM manipulation. It's important to remember where we all started from.
+      /* 1
+      We will start with a quick reminder where we all started from. The basic manipulation of the DOM.
+      We're doing this to have a comparison point for what we'll do with React soon.
 
-      // To do this we're going to use the root html file some basic JavaScript and the document object and its methods.
-      // Starting here we're going to grab the html element with the id of "root" and we're going to update its content to "Hello Modus!".
-      const rootElement = document.getElementById('root');
+      To do this we're going to have to grab the root element on this file by one of its attributes, the id in this case.
+      We’re doing this by using one of the methods present in the DOM: getElementById
+      */
+     const rootElement = document.getElementById('root');
 
-      // We're going to create a parent h1 that will host our content.
-      const h1 = document.createElement('h1');
+      /* 2
+      We're going to create a parent h1 that will host our content.
+      Using another DOM method: createElement.
+      */
+     const h1 = document.createElement('h1');
 
-      // We're going to update the text content of the h1 to "Hello Modus!".
-      h1.textContent = 'Hello Modus!';
+      /* 3
+      We're going to update the text content property of the h1 to "Hello Modus!".
+      */
+     h1.textContent = 'Hello Modus!';
 
-      // We're going to set the class attribute to the h1 element just to gain the ability to make it fancier.
-      h1.setAttribute('class', 'fancy');
+      /* 4
+      We're going to set the class attribute to the h1 element just to gain the ability to make it fancier.
+      */
+     h1.setAttribute('class', 'fancy');
 
-      // Now just append the h1 to the root element.
-      rootElement.append(h1);
+      /* 5
+      Now just append the h1 to the root element.
+      */
+     rootElement.append(h1);
     </script>
   </head>
   <body>
