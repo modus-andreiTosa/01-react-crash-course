@@ -1,9 +1,9 @@
 import './App.css';
 
 function App() {
-  // const { data } = useGetAllPlantData();
 
-  return <h1>Andrei</h1>;
+
+  return <h1>Hello Modus</h1>;
 }
 
 export default App;
