@@ -12,24 +12,24 @@
 
       To do this we're going to have to grab the root element on this file by one of its attributes, the id in this case.
       We’re doing this by using one of the methods present in the DOM: getElementById
+      const rootElement = document.getElementById('root');
       */
-     const rootElement = document.getElementById('root');
 
       /* 2
       We're going to create a parent h1 that will host our content.
       Using another DOM method: createElement.
+      const h1 = document.createElement('h1');
       */
-     const h1 = document.createElement('h1');
 
       /* 3
       We're going to update the text content property of the h1 to "Hello Modus!".
+      h1.textContent = 'Hello Modus!';
       */
-     h1.textContent = 'Hello Modus!';
 
       /* 4
       We're going to set the class attribute to the h1 element just to gain the ability to make it fancier.
+      h1.setAttribute('class', 'fancy');
       */
-     h1.setAttribute('class', 'fancy');
 
       /* 5
       Now just append the h1 to the root element.
