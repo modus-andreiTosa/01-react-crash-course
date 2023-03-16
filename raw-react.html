@@ -5,31 +5,59 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>raw-react</title>
+    <!-- These scripts load in our local environment the development code needed to work with React in this example.  -->
+    <script defer src="https://unpkg.com/react@18.1.0/umd/react.development.js"></script>
+    <script defer src="https://unpkg.com/react-dom@18.1.0/umd/react-dom.development.js"></script>
+
+    <script type="module">
+        /* 1
+        We are briefly exploring this to understand what gets transplied from the JSX syntax to actual React JavaScript code.
+        To have a good feel of what is happening we're going to do the same thing we did in the previous example using the raw react api.
+
+        Again it all starts at the root. We grab the `root` element using the same method: getElementById.
+        We will use this as the hook into which we will add our React code.
+
+        const rootElement = document.getElementById('root');
+        */
+
+        /* 2
+        Just like the old school DOM that we used before, React has a "createElement" function.
+
+    	This function takes three arguments.
+        The first is the type of element we want to create, the second is an object of props and the third is called children.
+    	The props object is optional and can be used to send data or other children to the new React element.
+
+    	The children argument is also optional and can be used to pass in other React nodes.
+        (elements, strings, numbers, portals, empty nodes, arrays of React nodes).
+
+    	On of the reasons JSX has some particular syntax rules can be observed below.
+        We are forced to write the html “class” attribute as “classNme” because class is a reserved word in JavaScript.
+
+        const h1 = React.createElement('h1', { className: 'fancy' }, 'Hello Modus!');
+        */
+
+
+        /* 3
+        To complete our task we first need to use ReactDOM to create the root React Node, inside of which we can render our App.
+
+        ReactDOM uses a virtual DOM to compare the current state of a React component with its previous state.
+        React compares the new tree of virtual DOM nodes with the previous tree to determine which parts of the real DOM need to be updated.
+        The Virtual DOM is a data structure that is created by React and stored in memory.
+        It is a tree-like structure that represents the current state of a component's rendered output.
+        Then it updates the real DOM only where changes have occurred.
+        The process of updating changed DOM nodes with new ones is called reconciliation.
+
+        const root = ReactDOM.createRoot(rootElement);
+        */
+
+        /* 4
+        This now allows us to render React nodes in the DOM and this also gives React the ability to manage the DOM.
+        root.render(h1);
+        */
+    </script>
 </head>
 <body>
     <div id="root"></div>
-    <script src="https://unpkg.com/react@18.1.0/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@18.1.0/umd/react-dom.development.js"></script>
-    <script type="module">
-        // Throughout this workshop will often manipulate react elements using props.
-        // To have a good feel of what is happening under the hood we're going to do the mae thing we did in the previous example but using the basic react api.
 
-        // In a very similar fashion to the previous example the first step is to grab the root element (div).
-        const rootElement = document.getElementById('root');
-
-        // Just like the old school DOM that we used before React has has a "createElement" function that.
-        // This function takes three arguments, the first is the type of element we want to create, the second is an object of props and the third is called children.
-        // The props object is optional and can be used send data to new React element.
-        // The children argument is also optional and can be used to pass in other React nodes (elements, strings, numbers, portals, empty nodes, arrays of React nodes).
-        const h1 = React.createElement('h1', { className: 'fancy' }, 'Hello Modus!');
-
-        // Here we are using the "className" prop instead of the "class" prop because "class" is a reserved word in JavaScript.
-        // Using camelCase for props and for common html attributes is the convention in React.
-        // To complete our task we first need to use ReactDOM to create the root React Node, inside of which we can render our App.
-        const root = ReactDOM.createRoot(rootElement);
-
-        // This now allows us to render React nodes in the DOM and this also gives React the ability to manage the DOM.
-        root.render(h1);
-    </script>
 </body>
 </html>
