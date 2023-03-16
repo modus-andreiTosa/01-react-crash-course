@@ -1,6 +1,12 @@
-const BasicComponent = (props: {
-  children: JSX.Element | JSX.Element[] | null;
-}) => props.children;
+import { createElement } from 'react';
+
+type BasicComponentProps<T> = {
+  children: T;
+};
+
+function BasicComponent<T>(props: BasicComponentProps<T>) {
+  return props.children;
+}
 
 function App() {
   // In this file, we already have two core concepts of React: components and JSX.
@@ -17,8 +23,8 @@ function App() {
   // The key attribute is used by React to identify which items have changed, are added, or are removed.
   // This is an example of composition.
   const elementsArray = [
-    <h1 key="1">Hello Modus</h1>,
-    <h1 key="2">Good to see you</h1>,
+    <li key="1">Hello Modus</li>,
+    <li key="2">Good to see you!</li>,
   ];
 
   // A component is a function or a class that optionally accepts inputs (called “props”) and returns a React node.
@@ -30,7 +36,15 @@ function App() {
     <div>
       {/* This is also an example of composition using the curly braces to embed JavaScript variables. */}
       <BasicComponent>{element}</BasicComponent>
-      <BasicComponent>{elementsArray}</BasicComponent>
+      <BasicComponent>
+        <>
+          {/* In order to be able to render correctly in React it's important to have a single root element inside every React component */}
+          <ul>{elementsArray}</ul>
+          {/* This is Equivalent with the able synax but in Raw react API */}
+          {/* If we are going to try to simply rendernder a list of react elements React is going to try to parse an Arry object wich is not a React Element */}
+          {createElement('ul', null, elementsArray)}
+        </>
+      </BasicComponent>
     </div>
   );
 }
