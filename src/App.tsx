@@ -9,7 +9,7 @@ function BasicComponent<T>(props: BasicComponentProps<T>) {
 }
 
 function App() {
-  // In this file, we already have two core concepts of React: components and JSX.
+  // In this file, we will look at two core concepts of React: components and JSX.
   // Moving forward, we will use JSX to describe the UI and see how the raw React apis translate to this abstraction.
   // JSX is a syntax extension to JavaScript.
   // It is similar to html but it has the full power of JavaScript.
