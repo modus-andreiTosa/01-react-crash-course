@@ -9,13 +9,17 @@ const onSubmitUsername = (username: string | undefined) => {
 };
 
 function UsernameForm({ onSubmitUsername }: OnSubmitUsername) {
-  // This callback function handles reading the value from the form on submit event and calling the onSubmitUsername function.
-  // The potential advantage of this approach is that you may have multiple input elements in the form.
+  /*
+  This callback function handles reading the value from the form on submit event and calling the onSubmitUsername function.
+  The potential advantage of this approach is that you may have multiple input elements in the form.
+   */
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     // This prevents the page from reloading when the form is submitted which is the default browser behavior.
     event.preventDefault();
-    // I chose to define a const here to make it easier to read the code. This is a type safe way to access the input element.
-    // Knowing the name of the input element you want to access, you can use the namedItem method to get it.
+    /*
+    I chose to define a const here to make it easier to read the code. This is a type safe way to access the input element.
+    Knowing the name of the input element you want to access, you can use the namedItem method to get it.
+     */
     const formEventNamedItem = event?.currentTarget?.elements.namedItem(
       'usernameInput'
     ) as HTMLInputElement;
@@ -40,12 +44,15 @@ function UsernameForm({ onSubmitUsername }: OnSubmitUsername) {
 }
 
 function UsernameFormRef({ onSubmitUsername }: OnSubmitUsername) {
-  // useRef returns a mutable ref object whose .current property is initialized to the passed argument (initialValue).
-  // This reference gives us access to the input element.
+  /*
+  useRef returns a mutable ref object whose .current property is initialized to the passed argument (initialValue).
+  This reference gives us access to the input element.
+   */
   const usernameInputRef = useRef<HTMLInputElement>(null);
-
-  // In this function, we use the ref to access the input element.
-  // In this case we would need a ref for each input element in the form.
+  /*
+  In this function, we use the ref to access the input element.
+  In this case we would need a ref for each input element in the form.
+  */
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     onSubmitUsername(usernameInputRef?.current?.value);
@@ -66,10 +73,11 @@ function UsernameFormRef({ onSubmitUsername }: OnSubmitUsername) {
     </form>
   );
 }
-
-// In a controlled form, as the name suggests, we gain control over the value of the form input.
-// This is done by using the value prop on the input element and the onChange event handler.
-function ControlledFrom({ userNanme }: { userNanme: string }) {
+/*
+I a controlled form, as the name suggests, we gain control over the value of the form input.
+This is done by using the value prop on the input element and the onChange event handler.
+ */
+function ControlledForm({ userNanme }: { userNanme: string }) {
   // We use the useState hook to set the initial value of the input element.
   const [username, setUsername] = useState(userNanme);
   // Now that we have control over the value of the input element, we can use it do things like validation and to show error messages.
@@ -114,7 +122,7 @@ function App() {
       <h3>React useRef form</h3>
       <UsernameFormRef onSubmitUsername={onSubmitUsername} />
       <h3>React controlled form</h3>
-      <ControlledFrom userNanme="John" />
+      <ControlledForm userNanme="John" />
     </div>
   );
 }
