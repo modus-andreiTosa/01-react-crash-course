@@ -23,11 +23,11 @@ module.exports = {
     ecmaVersion: 2020,
     sourceType: 'module',
   },
-  plugins: ['react', 'react-hooks'],
+  plugins: ['react', 'react-hooks', '@typescript-eslint'],
   rules: {
     'react/prop-types': 'off', // Disable prop-types rule if not needed
-    'no-console': 'warn',
-    'no-unused-vars': 'warn',
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': ['error'],
   },
   settings: {
     react: {
