@@ -15,6 +15,10 @@
     "strict": true,
     "target": "ESNext",
     "useDefineForClassFields": true,
+    "baseUrl": ".",
+    "paths": {
+      "@components/error-page": ["./ErrorPage"]
+    }
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]

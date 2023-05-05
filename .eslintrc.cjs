@@ -20,11 +20,12 @@ module.exports = {
     ecmaVersion: 2020,
     sourceType: 'module',
   },
-  plugins: ['react', 'react-hooks'],
+  plugins: ['react', 'react-hooks', 'react-refresh', '@typescript-eslint'],
   rules: {
     'react/prop-types': 'off', // Disable prop-types rule if not needed
     'no-console': 'warn',
     'no-unused-vars': 'warn',
+    'react-refresh/only-export-components': 'warn',
   },
   settings: {
     react: {
