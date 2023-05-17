@@ -53,7 +53,6 @@ export async function favoriteAction({
   request,
   params,
 }: ActionArgs<typeof Paths.contact>) {
-  console.log('favoriteAction');
   let formData = await request.formData();
   return updateContact(params.contactId, {
     favorite: formData.get('favorite') === 'true',
